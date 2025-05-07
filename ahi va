@@ -1,0 +1,64 @@
+from tkinter import *
+import tkinter as tk
+
+from urllib.request import urlopen
+from PIL import Image, ImageTk 
+from io import BytesIO  
+
+
+def limpiar_ventana():
+          for widget in ventana.winfo_children():
+               widget.destroy()
+
+def graficar():
+     limpiar_ventana()
+
+     Label(ventana, text="Ingrese la función", font=("Segoe UI Black", 20), bg="#b39ddb").pack(pady=80)
+     Entry(ventana)
+     respuesta=Entry(ventana).pack(pady=30)
+     Button(ventana, text="Enviar", font=("Segoe UI Black", 20), bg="#9575cd").pack(pady=80)
+
+def puntos():
+     limpiar_ventana()
+
+     Label(ventana, text="Ingrese los puntos específicos de la función", font=("Segoe UI Black", 20), bg="#b39ddb").pack(pady=80)
+     Entry(ventana)
+     respuesta=Entry(ventana).pack(pady=30)
+     Button(ventana, text="Enviar", font=("Segoe UI Black", 20), bg="#9575cd").pack(pady=80)
+
+def raíces():
+     limpiar_ventana()
+
+     Label(ventana, text="Ingrese la función", font=("Segoe UI Black", 20), bg="#b39ddb").pack(pady=80)
+     Entry(ventana)
+     respuesta=Entry(ventana).pack(pady=30)
+     Button(ventana, text="Enviar", font=("Segoe UI Black", 20), bg="#9575cd").pack(pady=80)
+
+def suma():
+     limpiar_ventana()
+
+     Label(ventana, text="Ingrese las funciones", font=("Segoe UI Black", 20), bg="#b39ddb").pack(pady=80)
+     Entry(ventana)
+     respuesta=Entry(ventana).pack(pady=30)
+     respuesta2=Entry(ventana).pack(pady=30)
+     Button(ventana, text="Enviar", font=("Segoe UI Black", 20), bg="#9575cd").pack(pady=80)
+
+def menu():
+     Label(ventana, text="Menú principal", font=("Segoe UI Black", 20), bg="#b39ddb").pack(pady=80)
+     Button(ventana, text="Graficar función", font=("Segoe UI",16), bg="#9575cd", command=graficar, ).pack(pady=15)
+     Button(ventana, text="Graficar puntos específicos sobre la función", font=("Segoe UI",16), bg="#9575cd", command=puntos).pack(pady=15)
+     Button(ventana, text="Encontrar raíces aproximadas de la función", font=("Segoe UI",16), bg="#9575cd", command=raíces).pack(pady=15)
+     Button(ventana, text="Sumar", font=("Segoe UI",16), bg="#9575cd", command=suma).pack(pady=15)
+    
+
+ventana=tk.Tk()
+ventana.title("Menú")
+ventana.geometry("900x1000")
+ventana.configure(bg="#b39ddb")
+
+menu()
+
+
+
+ventana.mainloop()
+
