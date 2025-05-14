@@ -5,28 +5,42 @@ from urllib.request import urlopen
 from PIL import Image, ImageTk 
 from io import BytesIO  
 
-def fondo():
+def portada():
     urlimagen = "https://github.com/moremedina/imagen/blob/1a541e6eba4f255ee07cf1836c938b65bdf568e7/1.png?raw=true"
     datosimagen = urlopen(urlimagen)
     imagenbinaria = datosimagen.read()
     imagen = Image.open(BytesIO(imagenbinaria))
     return imagen
 
+def fondo():
+    urlimagen = "https://github.com/moremedina/imagen2/blob/a03218e48f38f377a837a839cacc3175f003c99d/GRAFICADORA.png?raw=true"
+    datosimagen = urlopen(urlimagen)
+    imagenbinaria = datosimagen.read()
+    imagen = Image.open(BytesIO(imagenbinaria))
+    return imagen
 
 def limpiar_ventana():
           for widget in ventana.winfo_children():
                widget.destroy()
+      
+def inicio():
+      Label(ventana, text="Bienvenido, ¿Listo para comenzar?", font=("Segoe UI Black",20), bg="#b39ddb").place(x=450,y=180)
+      Button(ventana, text="Iniciar", font=("Segoe UI",16), bg="#9575cd", command=menu, ).place(x=620,y=580)
 
 def graficar():
      limpiar_ventana()
+     etiqueta = Label(ventana, image=ventana.fondo)
+     etiqueta.place(width=ancho, height=alto)
 
-     Label(ventana, text="Ingrese la función", font=("Segoe UI Black", 20), bg="#b39ddb").place(pady=80)
+     Label(ventana, text="Ingrese la función", font=("Segoe UI Black", 20), bg="#b39ddb").place(x=400, y=300)
      Entry(ventana)
      respuesta=Entry(ventana).place(x=600,y=400)
      Button(ventana, text="Enviar", font=("Segoe UI Black", 20), bg="#9575cd").place(x=800,y=500)
 
 def puntos():
      limpiar_ventana()
+     etiqueta = Label(ventana, image=ventana.fondo)
+     etiqueta.place(width=ancho, height=alto)
 
      Label(ventana, text="Ingrese los puntos específicos de la función", font=("Segoe UI Black", 20), bg="#b39ddb").place(x=100,y=200)
      Entry(ventana)
@@ -35,6 +49,8 @@ def puntos():
 
 def raíces():
      limpiar_ventana()
+     etiqueta = Label(ventana, image=ventana.fondo)
+     etiqueta.place(width=ancho, height=alto)
 
      Label(ventana, text="Ingrese la función", font=("Segoe UI Black", 20), bg="#b39ddb").place(x=50,y=50)
      Entry(ventana)
@@ -43,6 +59,8 @@ def raíces():
 
 def suma():
      limpiar_ventana()
+     etiqueta = Label(ventana, image=ventana.fondo)
+     etiqueta.place(width=ancho, height=alto)
 
      Label(ventana, text="Ingrese las funciones", font=("Segoe UI Black", 20), bg="#b39ddb").place(x=50, y=50)
      Entry(ventana)
@@ -50,8 +68,13 @@ def suma():
      respuesta2=Entry(ventana).place(x=100,y=200)
      Button(ventana, text="Enviar", font=("Segoe UI Black", 20), bg="#9575cd").place(x=200,y=300)
 
+
 def menu():
-     Label(ventana, text="Menú principal", font=("Segoe UI Black", 20), bg="#b39ddb").place(x=100,y=200)
+     limpiar_ventana()
+     etiqueta = Label(ventana, image=ventana.fondo)
+     etiqueta.place(width=ancho, height=alto)
+
+     Label(ventana, text="Menú principal", font=("Segoe UI Black", 20), bg="#b39ddb").place(x=600,y=100)
      Button(ventana, text="Graficar función", font=("Segoe UI",16), bg="#9575cd", command=graficar, ).place(x=100,y=300)
      Button(ventana, text="Graficar puntos específicos sobre la función", font=("Segoe UI",16), bg="#9575cd", command=puntos).place(x=100,y=400)
      Button(ventana, text="Encontrar raíces aproximadas de la función", font=("Segoe UI",16), bg="#9575cd", command=raíces).place(x=100,y=500)
@@ -66,16 +89,20 @@ ancho = ventana.winfo_screenwidth()
 alto = ventana.winfo_screenheight()
 ventana.geometry(f"{ancho}x{alto}")
 
+imagen = portada()
+imagenRedimensionada = imagen.resize((ancho, alto), Image.Resampling.LANCZOS)
+portadaTk = ImageTk.PhotoImage(imagenRedimensionada)
+ventana.portada=portadaTk
+
 imagen = fondo()
 imagenRedimensionada = imagen.resize((ancho, alto), Image.Resampling.LANCZOS)
-imagenTk = ImageTk.PhotoImage(imagenRedimensionada)
-ventana.portada=imagenTk
+fondoTk = ImageTk.PhotoImage(imagenRedimensionada)
+ventana.fondo=fondoTk
 
 etiqueta = Label(ventana, image=ventana.portada)
 etiqueta.place(width=ancho, height=alto)
 
-
-menu()
+inicio()
 
 
 
