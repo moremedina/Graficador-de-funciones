@@ -5,10 +5,6 @@ from urllib.request import urlopen
 from PIL import Image, ImageTk 
 from io import BytesIO  
 
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-import matplotlib.pyplot as plt
-import numpy as np
-
 
 def portada():
     urlimagen = "https://github.com/moremedina/imagen/blob/1a541e6eba4f255ee07cf1836c938b65bdf568e7/1.png?raw=true"
@@ -37,9 +33,19 @@ def graficar():
      etiqueta = Label(ventana, image=ventana.fondo)
      etiqueta.place(width=ancho, height=alto)
 
-     Label(ventana, text="Ingrese la función", font=("Segoe UI Black", 20), bg="#b39ddb").place(x=580, y=300)
-     Entry(ventana)
-     respuesta=Entry(ventana).place(x=640,y=390)
+     Label(ventana, text="Ingrese el grado de la función", font=("Segoe UI Black", 20), bg="#b39ddb").place(x=580, y=300)
+     grado= Entry(ventana).place(x=640,y=390)
+     grado=int(grado)
+
+     Button(ventana, text="Enviar", font=("Segoe UI Black", 20), bg="#9575cd").place(x=648,y=450)
+     
+     for grado 
+
+     Label(ventana, text="Ingrese el coeficiente", font=("Segoe Black UI", 20), bg="#b39ddb").place(x=300, y=400)
+     coeficiente= Entry(ventana)
+     coeficiente=int(coeficiente)
+     
+
      Button(ventana, text="Enviar", font=("Segoe UI Black", 20), bg="#9575cd").place(x=648,y=450)
 
 def puntos():
@@ -112,4 +118,3 @@ inicio()
 
 
 ventana.mainloop()
-
