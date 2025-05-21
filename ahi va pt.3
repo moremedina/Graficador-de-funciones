@@ -5,6 +5,11 @@ from urllib.request import urlopen
 from PIL import Image, ImageTk 
 from io import BytesIO  
 
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import matplotlib.pyplot as plt
+import numpy as np
+
+
 def portada():
     urlimagen = "https://github.com/moremedina/imagen/blob/1a541e6eba4f255ee07cf1836c938b65bdf568e7/1.png?raw=true"
     datosimagen = urlopen(urlimagen)
@@ -32,41 +37,41 @@ def graficar():
      etiqueta = Label(ventana, image=ventana.fondo)
      etiqueta.place(width=ancho, height=alto)
 
-     Label(ventana, text="Ingrese la función", font=("Segoe UI Black", 20), bg="#b39ddb").place(x=400, y=300)
+     Label(ventana, text="Ingrese la función", font=("Segoe UI Black", 20), bg="#b39ddb").place(x=580, y=300)
      Entry(ventana)
-     respuesta=Entry(ventana).place(x=600,y=400)
-     Button(ventana, text="Enviar", font=("Segoe UI Black", 20), bg="#9575cd").place(x=800,y=500)
+     respuesta=Entry(ventana).place(x=640,y=390)
+     Button(ventana, text="Enviar", font=("Segoe UI Black", 20), bg="#9575cd").place(x=648,y=450)
 
 def puntos():
      limpiar_ventana()
      etiqueta = Label(ventana, image=ventana.fondo)
      etiqueta.place(width=ancho, height=alto)
 
-     Label(ventana, text="Ingrese los puntos específicos de la función", font=("Segoe UI Black", 20), bg="#b39ddb").place(x=100,y=200)
+     Label(ventana, text="Ingrese los puntos específicos de la función", font=("Segoe UI Black", 20), bg="#b39ddb").place(x=400,y=300)
      Entry(ventana)
-     respuesta=Entry(ventana).place(x=300,y=200)
-     Button(ventana, text="Enviar", font=("Segoe UI Black", 20), bg="#9575cd").place(x=150,y=150)
+     respuesta=Entry(ventana).place(x=620,y=390)
+     Button(ventana, text="Enviar", font=("Segoe UI Black", 20), bg="#9575cd").place(x=628,y=450)
 
 def raíces():
      limpiar_ventana()
      etiqueta = Label(ventana, image=ventana.fondo)
      etiqueta.place(width=ancho, height=alto)
 
-     Label(ventana, text="Ingrese la función", font=("Segoe UI Black", 20), bg="#b39ddb").place(x=50,y=50)
+     Label(ventana, text="Ingrese la función", font=("Segoe UI Black", 20), bg="#b39ddb").place(x=580,y=300)
      Entry(ventana)
-     respuesta=Entry(ventana).place(x=150,y=250)
-     Button(ventana, text="Enviar", font=("Segoe UI Black", 20), bg="#9575cd").place(x=500,y=600)
+     respuesta=Entry(ventana).place(x=640,y=390)
+     Button(ventana, text="Enviar", font=("Segoe UI Black", 20), bg="#9575cd").place(x=648,y=450)
 
 def suma():
      limpiar_ventana()
      etiqueta = Label(ventana, image=ventana.fondo)
      etiqueta.place(width=ancho, height=alto)
 
-     Label(ventana, text="Ingrese las funciones", font=("Segoe UI Black", 20), bg="#b39ddb").place(x=50, y=50)
+     Label(ventana, text="Ingrese las funciones", font=("Segoe UI Black", 20), bg="#b39ddb").place(x=575, y=300)
      Entry(ventana)
-     respuesta=Entry(ventana).place(x=150,y=250)
-     respuesta2=Entry(ventana).place(x=100,y=200)
-     Button(ventana, text="Enviar", font=("Segoe UI Black", 20), bg="#9575cd").place(x=200,y=300)
+     respuesta=Entry(ventana).place(x=650,y=390)
+     respuesta2=Entry(ventana).place(x=650,y=430)
+     Button(ventana, text="Enviar", font=("Segoe UI Black", 20), bg="#9575cd").place(x=658,y=495)
 
 
 def menu():
@@ -75,10 +80,10 @@ def menu():
      etiqueta.place(width=ancho, height=alto)
 
      Label(ventana, text="Menú principal", font=("Segoe UI Black", 20), bg="#b39ddb").place(x=600,y=100)
-     Button(ventana, text="Graficar función", font=("Segoe UI",16), bg="#9575cd", command=graficar, ).place(x=100,y=300)
-     Button(ventana, text="Graficar puntos específicos sobre la función", font=("Segoe UI",16), bg="#9575cd", command=puntos).place(x=100,y=400)
-     Button(ventana, text="Encontrar raíces aproximadas de la función", font=("Segoe UI",16), bg="#9575cd", command=raíces).place(x=100,y=500)
-     Button(ventana, text="Sumar", font=("Segoe UI",16), bg="#9575cd", command=suma).place(x=100,y=600)
+     Button(ventana, text="Graficar función", font=("Segoe UI",16), bg="#9575cd", command=graficar, ).place(x=620,y=250)
+     Button(ventana, text="Graficar puntos específicos sobre la función", font=("Segoe UI",16), bg="#9575cd", command=puntos).place(x=498,y=350)
+     Button(ventana, text="Encontrar raíces aproximadas de la función", font=("Segoe UI",16), bg="#9575cd", command=raíces).place(x=501,y=450)
+     Button(ventana, text="Sumar", font=("Segoe UI",16), bg="#9575cd", command=suma).place(x=670,y=550)
     
 
 
